@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>CarRenting | Trouve ta caisse</title>
+        <link rel="stylesheet" media="screen" type="text/css" href="assets/css/cosmo.css"/>
+        <link rel="stylesheet" media="screen" type="text/css" href="assets/css/bootswatch.css"/>
+        <link rel="stylesheet" media="screen" type="text/css" href="assets/css/bootstrap-responsive.css"/>
+        <link type="text/css" href="assets/css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet"/>
+        <link rel="icon" href="assets/ico/favicon.png" type="image/png"/>
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0"/>
+    </head>
+    <body>
+        <div class="container">
+            <header class="jumbotron subhead" id="overview">
+                <div class="row">
+                    <div class="span6">
+                        <h1>
+                            <a class="logo" href="index.html">CarRenting</a>
+                        </h1>
+                        <p class="lead">Trouve ta caisse !</p>
+                    </div>
+                    <div class="tabbable span6"> <!-- Only required for left/right tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab1" data-toggle="tab">Recherche</a>
+                            </li>
+                            <li class="hidden-desktop">
+                                <a href="#tab2" data-toggle="tab">Recherche avance</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+		    <!-- Recherche html  -->
+                                <form class="form-search" action="search.html" method="get">
+                                    <select class="span2 mark" name="make">
+                                        <option>Marque </option>
+                                        <option>Marque 2</option>
+                                        <option>Marque 3</option>
+                                        <option>Marque 4</option>
+                                        <option>Marque 5</option>
+                                    </select>
+                                    <select class="span2 model" name="model">
+                                        <option>Modele </option>
+                                        <option>Modele 2</option>
+                                        <option>Modele 3</option>
+                                        <option>Modele 4</option>
+                                        <option>Modele 5</option>
+                                    </select>
+                                    <button type="submit" id="goSearch" class="btn">Recherche</button>
+                                    <a href="#myModal" role="button" class="btn btn-warning hidden-phone" data-toggle="modal">Recherche avancée</a>
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="tab2">
+		    <!-- Recherche avance html  -->
+<!--                                <form class="form-advancedSearch" action="search.html" method="get">
+                                    <label>Marques et modle : </label>
+                                    <select class="span2 markAdvanced" name="make">
+                                        <option>Marque </option>
+                                        <option>Marque 2</option>
+                                        <option>Marque 3</option>
+                                        <option>Marque 4</option>
+                                        <option>Marque 5</option>
+                                    </select>
+                                    <select class="span2 modelAdvanced" name="model">
+                                        <option>Modele </option>
+                                        <option>Modele 2</option>
+                                        <option>Modele 3</option>
+                                        <option>Modele 4</option>
+                                        <option>Modele 5</option>
+                                    </select>
+                                    <label>Etats du vhicule</label>
+                                    <select class="span2 etat" name="etat">
+                                        <option value="">Indiffrent</option>
+                                        <option value="neuf">Neuf</option>
+                                        <option value="bon etat">Bon tat</option>
+                                    </select>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkPrice" checked="checked"/> Prix :
+		    					</label>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </form>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subnav hidden-phone">
+                    <ul class="nav nav-pills">
+                        <li class="active">
+                            <a href="index.html">Accueil</a>
+                        </li>
+                        <li class="hidden-phone">
+                            <a href="#myModal" data-toggle="modal">Recherche</a>
+                        </li>
+                        <li class="">
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+		<!-- SLIDER -->
+            <div class="loading"/>
+            <ul class="thumbnails hidden" id="tplThumbnail">
+				
+				{{#tplThumbnail}}
+            
+                <li class="span2">
+                    <div class="thumbnail">
+                        <a href="single.html?make={{mark}}&amp;model={{model}}&amp;name={{name.LastName}}">
+                            <img src="{{url.img.src}}" alt="{{mark}} | {{model}}"/>
+                        </a>
+                        <a href="single.html?make={{mark}}&amp;model={{model}}&amp;name={{name.LastName}}">
+                            <h3>{{mark}}</h3>
+                        </a>
+                        <p>{{model}}</p>
+                    </div>
+                </li>
+                {{/tplThumbnail}}
+                
+            </ul>
+        </div> <!--fermeture div container central-->
+	
+<!-- Modal Advanced search-->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">?</button>
+                <h3 id="myModalLabel">Advanced Search</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-advancedSearch" action="search.html" method="get">
+                    <label>Marques et modle : </label>
+                    <select class="span2 markAdvanced" name="make">
+                        <option>Marque </option>
+                        <option>Marque 2</option>
+                        <option>Marque 3</option>
+                        <option>Marque 4</option>
+                        <option>Marque 5</option>
+                    </select>
+                    <select class="span2 modelAdvanced" name="model">
+                        <option>Modele </option>
+                        <option>Modele 2</option>
+                        <option>Modele 3</option>
+                        <option>Modele 4</option>
+                        <option>Modele 5</option>
+                    </select>
+                    <label>Etats du vhicule</label>
+                    <select class="span2 etat" name="etat">
+                        <option value="">Indiffrent</option>
+                        <option value="neuf">Neuf</option>
+                        <option value="bon etat">Bon tat</option>
+                    </select>
+                    <label class="checkbox">
+                        <input type="checkbox" name="checkPrice" checked="checked"/> Prix :
+					</label>
+                    <p id="amount"/>
+                    <input type="hidden" name="prixMin" id="prixMin" value=""/>
+                    <input type="hidden" name="prixMax" id="prixMax" value=""/>
+                    <div id="slider-range"/>
+                    <br/>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>    <!-- javascript -->
+    <!-- ================================================= -->
+    <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"/>
+        <script src="assets/js/mustache.js"/>
+        <script src="assets/js/bootstrap.js"/>
+        <script src="assets/js/jquery-ui-1.8.16.custom.min.js"/>
+        <script src="assets/js/main.js"/>
+        <script src="assets/js/thumbnails.js"/>
+        <script src="assets/js/slider.js"/>
+    </body>
+</html>
